@@ -102,7 +102,7 @@ class Process(object):
         stream = EventStream(dataframe.to_dict('r'))
         log = log_conv_factory.apply(stream)
         log = sorting.sort_timestamp(log, "time:timestamp")
-        exported_log = base64.b64encode(xes_exporter.export_log_as_string(log)).decode("utf-8")
+        exported_log = base64.b64encode(xes_exporter.serialize(log)).decode("utf-8")
         return self.name + "_" + objtype, "xes", exported_log
 
     def get_most_similar(self, id, exponent=None):
@@ -406,22 +406,8 @@ class Process(object):
                                                    "min_edge_freq": self.selected_min_edge_freq_count})
         tfilepath = tempfile.NamedTemporaryFile(suffix='.svg')
         tfilepath.close()
-        tfilepath_name = tfilepath.name
-        tfilepath_name = "prova.svg"
-        mdfg_vis_factory.save(gviz, tfilepath_name)
-
-        gviz2 = mdfg_vis_factory3.apply(model, measure=self.selected_decoration_measure,
-                                       freq=self.selected_aggregation_measure,
-                                       projection=self.selected_projection,
-                                       parameters={"format": "png", "min_act_freq": self.selected_min_acti_count,
-                                                   "min_edge_freq": self.selected_min_edge_freq_count})
-        tfilepath = tempfile.NamedTemporaryFile(suffix='.png')
-        tfilepath.close()
-        tfilepath_name = tfilepath.name
-        tfilepath_name = "prova.png"
-        mdfg_vis_factory.save(gviz2, tfilepath_name)
-
-        self.model_view = base64.b64encode(open(tfilepath_name, "rb").read()).decode('utf-8')
+        mdfg_vis_factory.save(gviz, tfilepath.name)
+        self.model_view = base64.b64encode(open(tfilepath.name, "rb").read()).decode('utf-8')
 
     def get_new_visualization(self):
         classifier_function = None

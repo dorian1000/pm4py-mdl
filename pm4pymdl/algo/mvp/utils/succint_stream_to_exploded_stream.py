@@ -15,7 +15,8 @@ def apply(stream):
             if type(ev[k]) is str:
                 if ev[k][0] == "[":
                     ev[k] = eval(ev[k])
-                    #ev[k] = ev[k][1:-1].split(",")
+                else:
+                    ev[k] = ev[k].replace(' ','').split(",") # no validation
             values = ev[k]
             if values is not None:
             #if values is not None and len(values) > 0:
