@@ -63,21 +63,21 @@ def apply(obj, parameters=None):
             if is_double_circled:
                 if pl in im:
                     g.node(this_uuid, pl_str, shape="doublecircle", style="filled", color=color, fillcolor=color,
-                           fontsize="13.0", labelfontsize="13.0", penwidth="3.0")
+                           fontsize="13.0", labelfontsize="13.0", penwidth="3.0", tooltip=persp)
                 elif pl in fm:
                     g.node(this_uuid, pl_str, shape="doublecircle", style="filled", color=color, fillcolor=color,
-                           fontsize="13.0", labelfontsize="13.0", penwidth="3.0")
+                           fontsize="13.0", labelfontsize="13.0", penwidth="3.0", tooltip=persp)
                 else:
-                    g.node(this_uuid, pl_str, shape="doublecircle", color=color, fontsize="13.0", labelfontsize="13.0", penwidth="3.0")
+                    g.node(this_uuid, pl_str, shape="doublecircle", color=color, fontsize="13.0", labelfontsize="13.0", penwidth="3.0", tooltip=persp)
             else:
                 if pl in im:
                     g.node(this_uuid, pl_str, shape="circle", style="filled", fillcolor=color, color=color,
-                           fontsize="13.0", labelfontsize="13.0")
+                           fontsize="13.0", labelfontsize="13.0", tooltip=persp)
                 elif pl in fm:
                     g.node(this_uuid, pl_str, shape="circle", style="filled", color=color, fillcolor=color,
-                           fontsize="13.0", labelfontsize="13.0")
+                           fontsize="13.0", labelfontsize="13.0", tooltip=persp)
                 else:
-                    g.node(this_uuid, pl_str, shape="circle", color=color, fontsize="13.0", labelfontsize="13.0")
+                    g.node(this_uuid, pl_str, shape="circle", color=color, fontsize="13.0", labelfontsize="13.0", tooltip=persp)
             all_objs[pl] = this_uuid
 
         for tr in net.transitions:
