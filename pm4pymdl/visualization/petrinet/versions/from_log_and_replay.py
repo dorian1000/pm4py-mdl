@@ -3,6 +3,7 @@ import tempfile
 from graphviz import Digraph
 from pm4py.objects.petri.petrinet import PetriNet
 from statistics import median, mean
+import os
 
 COLORS = ["#05B202", "#A13CCD", "#BA0D39", "#39F6C0", "#E90638", "#07B423", "#306A8A", "#678225", "#2742FE", "#4C9A75",
           "#4C36E9", "#7DB022", "#EDAC54", "#EAC439", "#EAC439", "#1A9C45", "#8A51C4", "#496A63", "#FB9543", "#2B49DD",
@@ -16,6 +17,16 @@ def apply(obj, parameters=None):
     image_format = "png"
     if "format" in parameters:
         image_format = parameters["format"]
+
+    '''
+    write_path = "output_nets"
+    suffix = '_'.join(list(obj["nets"].keys()))
+    suffix = suffix + '.gv'
+    
+    filename = write_path + "\\" + suffix
+    print("filename", filename)
+    g = Digraph("", filename=filename, engine='dot', graph_attr={'bgcolor': 'transparent'})
+    '''
 
     filename = tempfile.NamedTemporaryFile(suffix='.gv').name
     g = Digraph("", filename=filename, engine='dot', graph_attr={'bgcolor': 'transparent'})
