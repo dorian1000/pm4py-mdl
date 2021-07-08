@@ -1,3 +1,11 @@
+# Import package from local repository (not site-packages)
+import os 
+print("os: ",os.getcwd())
+import sys
+sys.path.append(os.getcwd())
+print("sys:",r"\n".join(sys.path))
+
+
 from pm4pymdl.objects.mdl.importer import importer as mdl_importer
 from pm4pymdl.algo.mvp.utils import succint_mdl_to_exploded_mdl
 

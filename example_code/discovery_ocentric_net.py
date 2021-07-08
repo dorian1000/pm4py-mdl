@@ -1,10 +1,6 @@
-import os 
-print("os: ",os.getcwd())
 
-import sys
-sys.path.append(os.getcwd())
-print("sys:",r"\n".join(sys.path))
-
+import custom_package_importer
+custom_package_importer.apply()
 
 from pm4pymdl.objects.mdl.importer import importer as mdl_importer
 from pm4pymdl.algo.mvp.get_logs_and_replay import algorithm as discovery_factory
@@ -30,5 +26,5 @@ for i in np.arange(0,11,1):
     
     pn_vis_factory.save(gviz, filename)
     
-    pn_vis_factory.view(gviz)
-    break
+    #pn_vis_factory.view(gviz)
+    
