@@ -345,11 +345,19 @@ def main():
     if defaults.CONFIGURATION == 1:
         #Shared.logs["o2c"] = Process("o2c", "example_logs/mdl/o2c_red.mdl", Shared.logs)
         #Shared.logs["runningexample"] = Process("runningexample", "example_logs/mdl/mdl-running-example.mdl", Shared.logs)
+        
         Shared.logs["orders"] = Process("orders", "example_logs/mdl/order_management.mdl", Shared.logs)
+        
         #Shared.logs["log_sample_full_pm"] = Process("log_sample_full_pm", "example_logs/mdl/log_sample_full_pm.mdl", Shared.logs)
         #Shared.logs["log_sample_v3_C"] = Process("log_sample_v3_C", "example_logs/mdl/old/log_sample_v3_C_short.mdl", Shared.logs)
         #Shared.logs["log_sample_v3_F"] = Process("log_sample_v3_F", "example_logs/mdl/old/log_sample_v3_F.mdl", Shared.logs) 
-        Shared.logs["log_sample_cluster_0"] = Process("log_sample_cluster_0", "example_logs/mdl/log_sample_cluster_0.csv", Shared.logs)         
+        
+        #Shared.logs["log_sample_cluster_0"] = Process("log_sample_cluster_0", "example_logs/mdl/log_sample_cluster_0.csv", Shared.logs)   
+        #Shared.logs["WF_checkRequest"] = Process("WF_checkRequest", "example_logs/mdl/log_createRefernce_WF_checkRequest.csv", Shared.logs)   
+        #Shared.logs["WF_checkRequest_allObj"] = Process("WF_checkRequest_allObj", "example_logs/mdl/log_createRefernce_WF_checkRequest_allObj.csv", Shared.logs) 
+        Shared.logs["log_createRefernce_WF_OfficeActions"] = Process("log_createRefernce_WF_OfficeActions", "example_logs/mdl/log_createRefernce_WF_OfficeActions.csv", Shared.logs) 
+        #Shared.logs["Full"] = Process("Full", "example_logs/mdl/log_createRefernce_full.csv", Shared.logs)  
+           
     elif defaults.CONFIGURATION == 2:
         Shared.logs["bkpf"] = Process("bkpf", "sap/bkpf_bseg.mdl", Shared.logs)
         Shared.logs["cdhdr"] = Process("cdhdr", "sap/sap_withTrial.mdl", Shared.logs)
